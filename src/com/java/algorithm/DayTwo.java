@@ -41,9 +41,22 @@ public class DayTwo {
 		}
 		
 	}
-	public static int getC(int m, int n)
+	/*public static int getC(int m, int n)
 	{
 	   if(m==0 || n==0) return 1;
 	   return getC(m-1, n) * (n+m)/m;
-	}
+	}*/
+	public static int getC(int m, int n) {  
+        if (m == 0) {// 0个A中取n个B返回1种可能  
+            return 1;  
+        }  
+        if (n == 0) {// m个A中取0个B  
+            return 1;  
+        }  
+        return getC(m - 1, n) + getC(m, n - 1);  
+        /* 
+         * 第一个如果取了一个A，则剩下m-1个A和n个B， 
+         * 第二个 如果取了一个B，则剩下m个A和n-1个B ,总数为这两个的和 
+         */  
+    }  
 }
